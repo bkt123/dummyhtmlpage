@@ -3,14 +3,14 @@
 <body>
 <script>
 
-function getUrlVars() {
-var vars = {};
-var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-vars[key] = value;
-});
-return vars;
+function finish() {
+    var redirectUri = decodeURIComponent(document.location.search.replace('?', '').split('&')[1].split('TPURLC=')[1]);
+    console.log("RedirectURI: " + redirectUri);
+    window.location.href = redirectUri;
 }
-var TPURLC = getUrlVars()["TPURLC"];
+
+  
+var TPURLC = finish()["TPURLC"];
 </script>
 
 <button onClick="javascript:window.location.href=TPURLC">Complete Assessment/Application Redirect</button>
