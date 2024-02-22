@@ -1,23 +1,21 @@
-<html>
-<title>Assessment Test Harness</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+</head>
 <body>
-<script>
-
-function finish() {
-    var redirectUri = decodeURIComponent(document.location.search.replace('?', '').split('&')[1].split('TPURLC=')[1]);
-    console.log("RedirectURI: " + redirectUri);
-    window.location.href = redirectUri;
-}
-
-  
-var TPURLC = finish()["TPURLC"];
-</script>
-
-<button onClick="javascript:window.location.href=TPURLC">Complete Assessment/Application Redirect</button>
-<span id='redirect_url' />
-<script>
-document.getElementById("redirect_url").innerHTML = "<br /><br /> Redirect URL detected: " + TPURLC + "<br />";
-</script>
-
+    <h1>Redirect Page</h1>
+    <!-- Your HTML content goes here -->
+    <button onclick="finish()">Finish</button>
+    
+    <script>
+        function finish() {
+            var redirectUri = decodeURIComponent(document.location.search.replace('?', '').split('&')[1].split('TPURLC=')[1]);
+            console.log("RedirectURI: " + redirectUri);
+            window.location.href = redirectUri;
+        }
+    </script>
 </body>
 </html>
